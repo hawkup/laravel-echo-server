@@ -30,7 +30,7 @@ export class PrivateChannel {
     authenticate(socket: any, data: any): Promise<any> {
         let authEndpoint = this.options.authEndpoint;
 
-        if (data.channel.match(/^staff.*/i)) {
+        if (data.channel.match(/.*staff.*/i)) {
             authEndpoint = this.options.authStaffEndpoint;
         }
 

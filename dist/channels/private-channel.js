@@ -10,7 +10,7 @@ var PrivateChannel = (function () {
     }
     PrivateChannel.prototype.authenticate = function (socket, data) {
         var authEndpoint = this.options.authEndpoint;
-        if (data.channel.match(/^staff.*/i)) {
+        if (data.channel.match(/.*staff.*/i)) {
             authEndpoint = this.options.authStaffEndpoint;
         }
         var options = {
