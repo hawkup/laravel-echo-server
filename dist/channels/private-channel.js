@@ -13,13 +13,15 @@ var PrivateChannel = (function () {
         if (data.channel.match(/.*staff.*/i)) {
             authEndpoint = this.options.authStaffEndpoint;
         }
+        else if (data.channel.match(/.*user.*/i)) {
+            authEndpoint = this.options.authUserEndpoint;
+        }
         var options = {
             url: this.authHost(socket) + authEndpoint,
             form: { channel_name: data.channel },
             headers: (data.auth && data.auth.headers) ? data.auth.headers : {},
             rejectUnauthorized: false
         };
-        console.log(options);
         return this.serverRequest(socket, options);
     };
     PrivateChannel.prototype.authHost = function (socket) {

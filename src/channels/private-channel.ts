@@ -32,6 +32,8 @@ export class PrivateChannel {
 
         if (data.channel.match(/.*staff.*/i)) {
             authEndpoint = this.options.authStaffEndpoint;
+        } else if (data.channel.match(/.*user.*/i)) {
+            authEndpoint = this.options.authUserEndpoint;
         }
 
         let options = {
@@ -40,8 +42,6 @@ export class PrivateChannel {
             headers: (data.auth && data.auth.headers) ? data.auth.headers : {},
             rejectUnauthorized: false
         };
-
-        console.log(options);
 
         return this.serverRequest(socket, options);
     }

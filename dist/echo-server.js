@@ -12,6 +12,7 @@ var EchoServer = (function () {
             authHost: 'http://localhost',
             authEndpoint: '/broadcasting/auth',
             authStaffEndpoint: '/broadcasting/auth/staff',
+            authUserEndpoint: '/broadcasting/auth/user',
             clients: [],
             database: 'redis',
             databaseConfig: {
