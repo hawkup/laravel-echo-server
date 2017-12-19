@@ -29,11 +29,13 @@ export class PrivateChannel {
      */
     authenticate(socket: any, data: any): Promise<any> {
         let options = {
-            url: this.authHost(socket) + this.options.authEndpoint,
+            url: this.authHost(socket) + data.authEndpoint,
             form: { channel_name: data.channel },
             headers: (data.auth && data.auth.headers) ? data.auth.headers : {},
             rejectUnauthorized: false
         };
+
+        console.log(options);
 
         return this.serverRequest(socket, options);
     }
