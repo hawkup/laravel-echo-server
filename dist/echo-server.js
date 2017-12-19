@@ -11,6 +11,7 @@ var EchoServer = (function () {
         this.defaultOptions = {
             authHost: 'http://localhost',
             authEndpoint: '/broadcasting/auth',
+            authStaffEndpoint: '/broadcasting/auth/staff',
             clients: [],
             database: 'redis',
             databaseConfig: {

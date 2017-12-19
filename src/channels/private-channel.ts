@@ -28,8 +28,14 @@ export class PrivateChannel {
      * @return {Promise<any>}
      */
     authenticate(socket: any, data: any): Promise<any> {
+        let authEndpoint = this.options.authEndpoint;
+
+        if (data.channel.match(/^staff.*/i)) {
+            authEndpoint = this.options.authStaffEndpoint;
+        }
+
         let options = {
-            url: this.authHost(socket) + data.authEndpoint,
+            url: this.authHost(socket) + authEndpoint,
             form: { channel_name: data.channel },
             headers: (data.auth && data.auth.headers) ? data.auth.headers : {},
             rejectUnauthorized: false

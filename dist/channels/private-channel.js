@@ -9,8 +9,12 @@ var PrivateChannel = (function () {
         this.request = request;
     }
     PrivateChannel.prototype.authenticate = function (socket, data) {
+        var authEndpoint = this.options.authEndpoint;
+        if (data.channel.match(/^staff.*/i)) {
+            authEndpoint = this.options.authStaffEndpoint;
+        }
         var options = {
-            url: this.authHost(socket) + data.authEndpoint,
+            url: this.authHost(socket) + authEndpoint,
             form: { channel_name: data.channel },
             headers: (data.auth && data.auth.headers) ? data.auth.headers : {},
             rejectUnauthorized: false
