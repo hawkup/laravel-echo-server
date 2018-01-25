@@ -59,6 +59,9 @@ var Channel = (function () {
         var _this = this;
         this.private.authenticate(socket, data).then(function (res) {
             socket.join(data.channel);
+            log_1.Log.info("joinPrivate : join " + data.channel + " channel");
+            log_1.Log.info("joinPrivate : authenticate response " + res);
+            log_1.Log.info(res);
             if (_this.isPresence(data.channel)) {
                 var member = res.channel_data;
                 try {
