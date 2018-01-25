@@ -127,6 +127,9 @@ export class Channel {
     joinPrivate(socket: any, data: any): void {
         this.private.authenticate(socket, data).then(res => {
             socket.join(data.channel);
+            Log.info(`joinPrivate : join ${data.channel} channel`);
+            Log.info(`joinPrivate : authenticate response ${res}`);
+            Log.info(res);
 
             if (this.isPresence(data.channel)) {
                 var member = res.channel_data;
