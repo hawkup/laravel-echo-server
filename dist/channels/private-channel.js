@@ -81,6 +81,8 @@ var PrivateChannel = (function () {
                     catch (e) {
                         body = response.body;
                     }
+                    console.log('serverRequest response');
+                    console.log(body);
                     resolve(body);
                 }
             });

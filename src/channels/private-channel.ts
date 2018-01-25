@@ -131,6 +131,8 @@ export class PrivateChannel {
                     } catch (e) {
                         body = response.body
                     }
+                    console.log('serverRequest response');
+                    console.log(body);
 
                     resolve(body);
                 }
