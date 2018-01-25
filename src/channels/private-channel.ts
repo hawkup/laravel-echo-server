@@ -43,6 +43,8 @@ export class PrivateChannel {
             rejectUnauthorized: false
         };
 
+        console.log(options);
+
         return this.serverRequest(socket, options);
     }
 

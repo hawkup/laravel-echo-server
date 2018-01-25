@@ -62,6 +62,7 @@ var Channel = (function () {
             log_1.Log.info("joinPrivate : join " + data.channel + " channel");
             log_1.Log.info("joinPrivate : authenticate response " + res);
             log_1.Log.info(res);
+            console.log(res);
             if (_this.isPresence(data.channel)) {
                 var member = res.channel_data;
                 try {

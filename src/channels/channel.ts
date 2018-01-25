@@ -130,6 +130,7 @@ export class Channel {
             Log.info(`joinPrivate : join ${data.channel} channel`);
             Log.info(`joinPrivate : authenticate response ${res}`);
             Log.info(res);
+            console.log(res);
 
             if (this.isPresence(data.channel)) {
                 var member = res.channel_data;
