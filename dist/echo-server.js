@@ -61,7 +61,7 @@ var EchoServer = (function () {
             _this.httpApi = new api_1.HttpApi(io, _this.channel, _this.server.express, _this.options.apiOriginAllow);
             _this.httpApi.init();
             _this.onConnect();
-            _this.listen().then(function () { return resolve(); });
+            _this.listen().then(function () { return resolve(); }, function (err) { return log_1.Log.error(err); });
         });
     };
     EchoServer.prototype.startup = function () {

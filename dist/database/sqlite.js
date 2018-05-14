@@ -1,10 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var sqlite3 = require('sqlite3');
+var sqlite3;
+try {
+    sqlite3 = require('sqlite3');
+}
+catch (e) { }
 var SQLiteDatabase = (function () {
     function SQLiteDatabase(options) {
         var _this = this;
         this.options = options;
+        if (!sqlite3)
+            return;
         var path = process.cwd() + options.databaseConfig.sqlite.databasePath;
         this._sqlite = new sqlite3.cached.Database(path);
         this._sqlite.serialize(function () {
